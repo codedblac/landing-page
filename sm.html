@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTonic - Felix Orina</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('images/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('images/bg2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .btn-explore {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #3498db;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn-explore:hover {
+            background: #2980b9;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-item {
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-item:hover {
+            color: #f39c12;
+        }
+
+        .title {
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 36px;
+            color: #f39c12;
+            margin-right: auto;
+        }
+
+        .container {
+            display: flex;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 1s ease;
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            width: 80%;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: auto;
+        }
+
+        .profile {
+            width: 25%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-right: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stats, .services {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service, .stat {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service:hover, .stat:hover {
+            transform: scale(1.05);
+        }
+
+        .content {
+            width: 75%;
+            display: none;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack items vertically */
+                width: 90%; /* Adjust width */
+                padding: 10px; /* Reduce padding */
+            }
+
+            .profile {
+                width: 100%; /* Full width on small screens */
+                margin-right: 0; /* Remove right margin */
+                margin-bottom: 20px; /* Add bottom margin for spacing */
+            }
+
+            .content {
+                width: 100%; /* Full width for content */
+            }
+
+            .stats, .services {
+                flex-direction: column; /* Stack stats/services vertically */
+                align-items: center; /* Center alignment */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Landing Page -->
+<div class="hero">
+    <h1 style="font-family: 'Rubik Wet Paint', cursive; text-align: center; font-size: 36px; color: #f39c12;">TechTonic</h1>
+    <h3 style="font-family: 'Spicy Rice', cursive;">Your partner in innovative tech solutions</h3>
+    <button class="btn btn-explore" id="exploreBtn">Explore</button>
+</div>
+
+<!-- Separation Margin -->
+<div style="height: 20px; background: transparent;"></div>
+
+<!-- Portfolio Section -->
+<div class="container" id="portfolio">
+    <div class="profile">
+        <div class="profile-info">
+            <img src="images/download.jpg" alt="Felix Orina">
+            <h2 style="font-family: 'Rowdies', cursive; color: #6c757d;">FELIX ORINA</h2>
+            <div class="title">Developer</div>
+        </div>
+        <div>
+            <p style="margin-bottom: 5px;">felixtrapper147@gmail.com</p>
+            <p style="margin-bottom: 5px;">0714213413</p>
+            <p>Nairobi, Kenya</p>
+        </div>
+    </div>
+
+    <div class="content" id="content">
+        <nav class="navbar">
+            <div class="title">TechTonic</div>
+            <ul class="nav">
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('about')">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('services')">Services</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div id="about" class="section">
+            <h2>About Me</h2>
+            <p>Hi! I’m Felix, a passionate web developer with 2 years of experience in creating innovative and user-friendly digital solutions. I specialize in web and software development and thrive on challenges that allow me to turn client visions into reality...</p>
+            <div class="stats" id="stats">
+                <div class="stat">Happy Clients: 10</div>
+                <div class="stat">Projects Done: 25</div>
+                <div class="stat">Hours of Support: 200</div>
+                <div class="stat">Hardworkers: 5</div>
+            </div>
+        </div>
+
+        <div id="services" class="section" style="display: none;">
+            <h2>Services</h2>
+            <div class="services">
+                <div class="service">
+                    <h2>Custom Software Development</h2>
+                    <p>High-quality software solutions tailored to your needs.</p>
+                </div>
+                <div class="service">
+                    <h2>Phone Application Development</h2>
+                    <p>Developing intuitive mobile applications for all platforms.</p>
+                </div>
+                <div class="service">
+                    <h2>Web Design and Development</h2>
+                    <p>Creating responsive and modern websites.</p>
+                </div>
+                <div class="service">
+                    <h2>Data Science</h2>
+                    <p>Transforming data into actionable insights for your business.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="section" style="display: none;">
+            <h2>Contact</h2>
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Explore button click event
+    document.getElementById('exploreBtn').onclick = function () {
+        const heroSection = document.querySelector('.hero');
+        heroSection.style.opacity = '0';
+
+        setTimeout(function () {
+            heroSection.style.display = 'none';
+            const portfolio = document.getElementById('portfolio');
+            portfolio.style.display = 'flex';
+            portfolio.style.opacity = '1';
+            document.getElementById('content').style.display = 'block';
+            showSection('about');
+        }, 500);
+    };
+
+    // Show section function
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+        document.getElementById(sectionId).style.display = 'block';
+    }
+</script>
+</body>
+</html>
+
