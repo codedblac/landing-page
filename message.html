@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTonic - Felix Orina</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('images/second.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('images/bg2.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            position: relative;
+            opacity: 1;
+            animation: fadeIn 1s; /* Fade-in effect */
+        }
+
+        .btn-explore {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #3498db;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s; /* Add transform transition */
+        }
+
+        .btn-explore:hover {
+            background: #2980b9;
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .nav {
+            margin-left: auto; /* Pushes nav items to the end */
+        }
+
+        .nav-item {
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-item:hover {
+            color: #f39c12;
+        }
+
+        .title {
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 36px;
+            color: #f39c12;
+        }
+
+        .container {
+            display: none;
+            padding: 40px;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .profile {
+            width: 25%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-right: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: slideIn 0.5s; /* Slide-in effect */
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            animation: fadeIn 0.5s; /* Fade-in effect for image */
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile .title {
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 24px; /* Adjust size if necessary */
+            margin: 10px 0; /* Center alignment */
+            animation: fadeIn 0.5s; /* Fade-in effect for title */
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s, color 0.3s;
+            opacity: 0;
+            animation: fadeInUp 0.5s forwards; /* Fade-in up effect */
+            cursor: pointer; /* Change cursor to pointer */
+        }
+
+        .service:hover {
+            transform: scale(1.05); /* Scale on hover */
+            background-color: #2980b9; /* Change background color */
+            color: white; /* Change text color */
+        }
+
+        /* Horizontal line */
+        .horizontal-line {
+            width: calc(100% - 40px); /* Adjust for padding */
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px auto;
+            padding: 0 20px; /* Add padding to the sides */
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 90%;
+                padding: 10px;
+            }
+
+            .profile {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .service {
+                opacity: 1; /* Ensure services are visible */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Landing Page -->
+<div class="hero">
+    <h1 class="title">TechTonic</h1>
+    <h3 style="font-family: 'Spicy Rice', cursive;">Your partner in innovative tech solutions</h3>
+    <button class="btn btn-explore" id="exploreBtn">Explore</button>
+</div>
+
+<!-- Portfolio Section -->
+<div class="container" id="portfolio">
+    <div class="profile">
+        <div class="profile-info">
+            <img src="images/download.jpg" alt="Felix Orina">
+            <h2 style="font-family: 'Rowdies', cursive; color: #6c757d;">FELIX ORINA</h2>
+            <div class="title">Developer</div>
+        </div>
+        <div class="horizontal-line"></div> <!-- Horizontal line -->
+        <div>
+            <h3>CONTACTS</h3>
+            <p><strong>Email:</strong> <a href="mailto:felixtrapper147@gmail.com">felixtrapper147@gmail.com</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/0705201338">0705201338</a></p>
+            <p><strong>Address:</strong> KICC, Nairobi, Kenya</p>
+        </div>
+    </div>
+
+    <div class="content" id="content">
+        <nav class="navbar">
+            <div class="title">TechTonic</div>
+            <ul class="nav">
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('about')">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('services')">Services</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div id="about" class="section">
+            <h2>About Us</h2>
+            <p>At TechTonic, we are dedicated to empowering businesses through innovative technology solutions. With expertise in web development, software development, and IT consultancy, we help organizations navigate the digital landscape with confidence and ease.</p>
+            <p>Founded by a team of industry veterans, we understand the challenges businesses face in today's fast-paced environment. Our mission is to provide tailored solutions that drive efficiency, enhance productivity, and foster growth. Whether you're a startup seeking to establish your online presence or an established enterprise looking to optimize your IT infrastructure, we have the expertise to meet your needs.</p>
+            <p>Our services include:</p>
+            <ul>
+                <li>Web Development</li>
+                <li>Software Development</li>
+                <li>IT Consultancy</li>
+                <li>Data Science</li>
+                <li>Web Designs</li>
+                <li>Phone Applications</li>
+                <li>Business Central</li>
+            </ul>
+        </div>
+
+        <div id="services" class="section" style="display: none;">
+            <h2>Services</h2>
+            <div class="services">
+                <div class="service" onclick="showSection('contact')">
+                    <h3>Custom Software Development</h3>
+                    <p>High-quality software solutions tailored to your needs.</p>
+                </div>
+                <div class="service" onclick="showSection('contact')">
+                    <h3>Phone Application Development</h3>
+                    <p>Developing intuitive mobile applications for all platforms.</p>
+                </div>
+                <div class="service" onclick="showSection('contact')">
+                    <h3>Web Design and Development</h3>
+                    <p>Creating responsive and modern websites.</p>
+                </div>
+                <div class="service" onclick="showSection('contact')">
+                    <h3>Data Science</h3>
+                    <p>Transforming data into actionable insights for your business.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="section" style="display: none;">
+            <h2>Contact Us</h2>
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xdkoaodw" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+            <div style="margin-top: 20px;">
+                <h3>Follow Us</h3>
+                <div>
+                    <a href="https://www.linkedin.com/notifications/?filter=all" target="_blank">LinkedIn</a> |
+                    <a href="https://twitter.com" target="_blank">Twitter</a> |
+                    <a href="https://www.facebook.com/profile.php?id=100066801464719" target="_blank">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('exploreBtn').addEventListener('click', function() {
+        document.querySelector('.hero').style.display = 'none';
+        const container = document.querySelector('.container');
+        container.style.display = 'flex';
+        container.style.opacity = '1';
+        container.style.transition = 'opacity 1s ease';
+    });
+
+    function showSection(section) {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(s => {
+            s.style.display = 'none';
+        });
+        document.getElementById(section).style.display = 'block';
+    }
+</script>
+</body>
+</html>
